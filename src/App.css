@@ -76,3 +76,14 @@
     border-left: 1px solid black;
     border-right: 2px solid black;
 }
+
+
+.select-no-complete{
+    background: #FFDADA;
+    border: none;
+}
+
+.select-complete{
+    background: #D0FFBA;
+    border: none;
+}
