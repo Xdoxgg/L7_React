@@ -2,7 +2,7 @@
     background: #FFDADA;
     height: 70px;
     width: 100%;
-    margin: 0 ;
+    margin: 0;
     padding-top: 40px;
     position: relative;
 }
@@ -21,20 +21,21 @@
     margin-left: 10%;
 }
 
-.container{
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
-.table{
+.table {
     margin-top: 20px;
     position: relative;
     width: 80%;
     border-collapse: collapse;
 }
 
-.table th, td{
+.table th, td {
     margin: 0;
     border: 1px solid rgba(0, 0, 0, 0.2);
     padding: 5px;
@@ -55,6 +56,7 @@
     border-left: 2px solid black;
     border-right: 1px solid black;
 }
+
 .table tfoot td:nth-child(2) {
     border-right: 1px solid black;
 }
@@ -68,22 +70,107 @@
     border-left: 2px solid black;
     border-right: 1px solid black;
 }
+
 .table tbody td:nth-child(2) {
     border-left: 1px solid black;
     border-right: 1px solid black;
 }
+
 .table tbody td:nth-child(3) {
     border-left: 1px solid black;
     border-right: 2px solid black;
 }
 
 
-.select-no-complete{
+.select-no-complete {
     background: #FFDADA;
     border: none;
 }
 
-.select-complete{
+.select-complete {
     background: #D0FFBA;
     border: none;
+}
+
+.remove {
+    background: #FFFEBACC;
+    border: none;
+}
+
+.date-lose {
+    color: #FF0000;
+}
+
+
+.state-list {
+    margin-top: 5px;
+    width: 174px;
+    height: 28px;
+}
+
+.tde {
+    border: none;
+
+}
+
+.trash-container {
+    display: flex;
+    background: #FFDADA;
+    margin-left: 10px;
+    height: 30px;
+    width: 30px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.trash {
+
+}
+
+.add-button {
+    width: 193px;
+    height: 48px;
+    margin-top: 50px;
+    border-radius: 10px;
+    background: #FFDADA;
+    border: none;
+}
+
+.add-form-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: rgba(16, 16, 16, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-form {
+    border-radius: 10px;
+    border: 4px solid #FFDADA;
+    background: white;
+    width: 700px;
+    height: 400px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cross {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 15px;
+    top: 10px;
+}
+
+.add-form-title {
+    
+    font-size: 25px;
+    font-weight: bold;
+    font-family: sans-serif;
 }

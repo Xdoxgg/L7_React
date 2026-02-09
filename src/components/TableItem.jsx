@@ -1,18 +1,41 @@
-import {useState} from 'react'
 import '../App.css'
 import StateList from "./StateList.jsx";
+import {FaRegTrashAlt} from "react-icons/fa";
 
+function TableItem({item, onStateChange}) {
 
-function TableItem({item}) {
+    const checkDate = (date) => {
+        const dateNow = new Date();
+
+        const check = new Date(date);
+        const now = new Date(dateNow);
+
+        check.setHours(0, 0, 0, 0);
+        now.setHours(0, 0, 0, 0);
+
+        if (check.getTime() < now.getTime()) {
+            return true;
+        } else if (check.getTime() === now.getTime()) {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
     return (
         <tr key={item.id}>
             <td>{item.title}</td>
             <td>
-                <StateList item={item} />
+                <StateList item={item} onStateChange={onStateChange}/>
             </td>
-            <td>{new Date(item.time).toLocaleDateString()}</td>
-        </tr>)
+            <td className={(checkDate(item.time) ? 'date-lose' : '')}>{new Date(item.time).toLocaleDateString()}</td>
+            <td className='tde'>
+                <div className='trash-container'>
+                    <FaRegTrashAlt className='trash'/>
+                </div>
+            </td>
+        </tr>
+    )
 }
-
 
 export default TableItem;
