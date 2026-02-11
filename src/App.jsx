@@ -24,7 +24,18 @@ function App() {
             time: '02.06.2026'
         }
     ]);
-
+    const addItemHandler = (item) => {
+        let newId = -1
+        tasks.map((item) => {
+            newId = item.id
+        })
+        newId++;
+        alert(JSON.stringify(item))
+        item.id = newId;
+        setTasks([...tasks, item]);
+    }
+    
+    const [modalOpen, setModalOpen] = useState(true);
     const updateTaskState = (id, newState) => {
         setTasks(prevTasks =>
             prevTasks.map(task =>
@@ -33,8 +44,16 @@ function App() {
         );
     };
 
+    const deleteTaskHandler = (id) => {
+        setTasks(prevTasks => prevTasks.filter(task => task.id !== id));
+    };
+    
+   
     return (
         <>
+            <div className='add-form-container' style={modalOpen === true ? {display: 'flex'} : {display: 'none'}}>
+                <AddFrom modalActionHandler={setModalOpen} addItemHandler={addItemHandler} />
+            </div>
             <header className='header'>
                 <div className='menu-element'>Все задачи</div>
                 <div className='menu-element'>Активные задачи</div>
@@ -55,6 +74,7 @@ function App() {
                             key={task.id}
                             item={task}
                             onStateChange={updateTaskState} // передаем функцию обновления
+                            deleteTaskHandler={deleteTaskHandler}
                         />
                     ))}
                     </tbody>
@@ -66,12 +86,10 @@ function App() {
                     </tr>
                     </tfoot>
                 </table>
-                <button className='add-button' onClick={() => alert(JSON.stringify(tasks))}>
+                <button className='add-button' onClick={() => setModalOpen(true)}>
                     Добавить задачу
                 </button>
-                <div className='add-form-container'>
-                    <AddFrom/>
-                </div>
+                
             </main>
         </>
     );

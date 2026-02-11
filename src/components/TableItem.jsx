@@ -2,7 +2,7 @@ import '../App.css'
 import StateList from "./StateList.jsx";
 import {FaRegTrashAlt} from "react-icons/fa";
 
-function TableItem({item, onStateChange}) {
+function TableItem({item, onStateChange, deleteTaskHandler}) {
 
     const checkDate = (date) => {
         const dateNow = new Date();
@@ -30,7 +30,7 @@ function TableItem({item, onStateChange}) {
             </td>
             <td className={(checkDate(item.time) ? 'date-lose' : '')}>{new Date(item.time).toLocaleDateString()}</td>
             <td className='tde'>
-                <div className='trash-container'>
+                <div className='trash-container' onClick={()=>deleteTaskHandler(item.id)}>
                     <FaRegTrashAlt className='trash'/>
                 </div>
             </td>

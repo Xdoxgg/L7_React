@@ -1,3 +1,8 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .header {
     background: #FFDADA;
     height: 70px;
@@ -103,12 +108,13 @@
 
 
 .state-list {
-    margin-top: 5px;
+    margin-top: 9px;
     width: 174px;
     height: 28px;
 }
 
 .tde {
+    position: absolute;
     border: none;
 
 }
@@ -122,10 +128,11 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
+    
 }
 
-.trash {
-
+.trash-container:hover {
+    border: 2px solid black;
 }
 
 .add-button {
@@ -135,6 +142,11 @@
     border-radius: 10px;
     background: #FFDADA;
     border: none;
+    transition: 0.3s ease;
+}
+.add-button:hover {
+    border: 2px solid black;
+    transform: scale(1.1);
 }
 
 .add-form-container {
@@ -148,29 +160,3 @@
     justify-content: center;
 }
 
-.add-form {
-    border-radius: 10px;
-    border: 4px solid #FFDADA;
-    background: white;
-    width: 700px;
-    height: 400px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.cross {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    right: 15px;
-    top: 10px;
-}
-
-.add-form-title {
-    
-    font-size: 25px;
-    font-weight: bold;
-    font-family: sans-serif;
-}
